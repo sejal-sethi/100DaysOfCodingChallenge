@@ -1,0 +1,23 @@
+public static long count(int s[], int m, int n) 
+	    { 
+	      List<Integer> ansSoFar=new ArrayList<Integer> ();
+	      int solSoFar=0;
+	      
+	      return countTemp(s,m,n,solSoFar,ansSoFar,0);
+	    } 
+	    public static long countTemp(int s[], int m, int n,long solSoFar, List<Integer> ansSoFar,int j) {
+	        int count =0;
+	        for(int i=0;i<ansSoFar.size();i++){
+	            count =count +ansSoFar.get(i);
+	        }
+	        if(count ==n){
+	            solSoFar++;
+	            return solSoFar;
+	        }else{
+	            for(int i=0;i<s.length;i++){
+	                ansSoFar.add(s[i]);
+	                return countTemp(s,m,n,solSoFar,ansSoFar,++j);
+	            }
+	        }
+			return solSoFar;
+	    }
